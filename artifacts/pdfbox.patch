@@ -1,0 +1,49 @@
+diff --git a/pdfbox/pom.xml b/pdfbox/pom.xml
+index f797150..460be79 100644
+--- a/pdfbox/pom.xml
++++ b/pdfbox/pom.xml
+@@ -79,9 +79,15 @@
+         <dependency>
+ 	      <groupId>org.junit.jupiter</groupId>
+ 	      <artifactId>junit-jupiter</artifactId>
+-          <version>${junit.version}</version>
++          <version>5.9.1</version>
+ 	      <scope>test</scope>
+ 	    </dependency>
++        <dependency>
++          <groupId>com.code-intelligence</groupId>
++          <artifactId>jazzer-junit</artifactId>
++          <version>0.22.1</version>
++          <scope>test</scope>
++        </dependency>
+         <dependency>
+             <groupId>com.googlecode.java-diff-utils</groupId>
+             <artifactId>diffutils</artifactId>
+diff --git a/pdfbox/src/test/java/org/apache/pdfbox/pdfparser/PDFStreamParserTest.java b/pdfbox/src/test/java/org/apache/pdfbox/pdfparser/PDFStreamParserTest.java
+index 73ff532..2f7fce9 100644
+--- a/pdfbox/src/test/java/org/apache/pdfbox/pdfparser/PDFStreamParserTest.java
++++ b/pdfbox/src/test/java/org/apache/pdfbox/pdfparser/PDFStreamParserTest.java
+@@ -24,6 +24,8 @@ import org.junit.jupiter.api.Test;
+ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+ import static org.junit.jupiter.api.Assertions.assertEquals;
+ 
++import com.code_intelligence.jazzer.junit.FuzzTest;
++
+ /**
+  * Tests for PDFStreamParser.
+  *
+@@ -31,6 +33,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
+  */
+ class PDFStreamParserTest
+ {
++    @FuzzTest
++    void FuzzTestPDFParser(byte[] data) {
++        PDFStreamParser pdfStreamParser = new PDFStreamParser(data);
++        try {
++            pdfStreamParser.parse();
++        } catch (IOException e) {
++        }
++    }
+ 
+     /**
+      * Tests for inline images, whether the EI is correctly identified as
