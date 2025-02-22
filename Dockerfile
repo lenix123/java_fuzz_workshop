@@ -35,6 +35,8 @@ RUN mkdir log4j
 WORKDIR /home/fuzz/log4j
 RUN wget https://downloads.apache.org/logging/log4j/2.24.3/apache-log4j-2.24.3-bin.zip
 RUN unzip apache-log4j-2.24.3-bin.zip && rm apache-log4j-2.24.3-bin.zip
+RUN wget https://archive.apache.org/dist/commons/logging/binaries/commons-logging-1.2-bin.tar.gz
+RUN tar xf commons-logging-1.2-bin.tar.gz && rm commons-logging-1.2-bin.tar.gz
 WORKDIR /home/fuzz
 
 # get jacoco
