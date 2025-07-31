@@ -10,17 +10,17 @@ ENV JAVA_HOME='/opt/jdk-22.0.2'
 ENV PATH="$JAVA_HOME/bin:$PATH"
 
 # install mvn
-RUN wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
-RUN tar -xf apache-maven-3.9.6-bin.tar.gz && rm apache-maven-3.9.6-bin.tar.gz
-RUN mv apache-maven-3.9.6 /opt/
-ENV M2_HOME='/opt/apache-maven-3.9.6'
+RUN wget https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz
+RUN tar -xf apache-maven-3.9.11-bin.tar.gz && rm apache-maven-3.9.11-bin.tar.gz
+RUN mv apache-maven-3.9.11 /opt/
+ENV M2_HOME='/opt/apache-maven-3.9.11'
 ENV PATH="$M2_HOME/bin:$PATH"
 
 # clone pdfbox repository
 RUN mkdir /home/fuzz
 WORKDIR /home/fuzz
-RUN wget https://dlcdn.apache.org/pdfbox/3.0.4/pdfbox-3.0.4-src.zip
-RUN unzip pdfbox-3.0.4-src.zip && rm pdfbox-3.0.4-src.zip && mv pdfbox-3.0.4 pdfbox
+RUN wget https://dlcdn.apache.org/pdfbox/3.0.5/pdfbox-3.0.5-src.zip
+RUN unzip pdfbox-3.0.5-src.zip && rm pdfbox-3.0.5-src.zip && mv pdfbox-3.0.5 pdfbox
 
 # install jazzer
 RUN mkdir jazzer
@@ -33,8 +33,8 @@ ENV PATH="$PATH:/home/fuzz/jazzer"
 WORKDIR /home/fuzz
 RUN mkdir log4j
 WORKDIR /home/fuzz/log4j
-RUN wget https://downloads.apache.org/logging/log4j/2.24.3/apache-log4j-2.24.3-bin.zip
-RUN unzip apache-log4j-2.24.3-bin.zip && rm apache-log4j-2.24.3-bin.zip
+RUN wget https://downloads.apache.org/logging/log4j/2.25.1/apache-log4j-2.25.1-bin.zip
+RUN unzip apache-log4j-2.25.1-bin.zip && rm apache-log4j-2.25.1-bin.zip
 RUN wget https://archive.apache.org/dist/commons/logging/binaries/commons-logging-1.2-bin.tar.gz
 RUN tar xf commons-logging-1.2-bin.tar.gz && rm commons-logging-1.2-bin.tar.gz
 WORKDIR /home/fuzz

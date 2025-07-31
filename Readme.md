@@ -70,7 +70,7 @@ jazzer --cp=.:../pdfbox/target/classes/:../io/target/classes/:/home/fuzz/log4j/l
 Генерируем html отчёт с помощью jacococli:
 
 ``` #bash
-java -jar /home/fuzz/jacoco/lib/jacococli.jar report coverage.exec --classfiles ../pdfbox/target/pdfbox-3.0.4.jar --html report --sourcefiles ../pdfbox/src/main/java/
+java -jar /home/fuzz/jacoco/lib/jacococli.jar report coverage.exec --classfiles ../pdfbox/target/pdfbox-3.0.5.jar --html report --sourcefiles ../pdfbox/src/main/java/
 ```
 
 Копируем папку с html отчётом на хост:
