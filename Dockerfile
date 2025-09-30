@@ -33,8 +33,8 @@ ENV PATH="$PATH:/home/fuzz/jazzer"
 WORKDIR /home/fuzz
 RUN mkdir log4j
 WORKDIR /home/fuzz/log4j
-RUN wget https://downloads.apache.org/logging/log4j/2.25.1/apache-log4j-2.25.1-bin.zip
-RUN unzip apache-log4j-2.25.1-bin.zip && rm apache-log4j-2.25.1-bin.zip
+RUN wget https://downloads.apache.org/logging/log4j/2.25.2/apache-log4j-2.25.2-bin.zip
+RUN unzip apache-log4j-2.25.2-bin.zip && rm apache-log4j-2.25.2-bin.zip
 RUN wget https://archive.apache.org/dist/commons/logging/binaries/commons-logging-1.2-bin.tar.gz
 RUN tar xf commons-logging-1.2-bin.tar.gz && rm commons-logging-1.2-bin.tar.gz
 WORKDIR /home/fuzz
