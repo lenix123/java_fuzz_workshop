@@ -1,0 +1,5 @@
+[jazzer]
+target_class = "PDFStreamParserFuzzer"
+agent_path = "/home/fuzz/jazzer/jazzer_standalone.jar"
+jacocolib = "/home/fuzz/jacoco/lib"
+args = "--cp=/home/fuzz/pdfbox/fuzz:/home/fuzz/pdfbox/pdfbox/target/classes/:/home/fuzz/pdfbox/io/target/classes/:/home/fuzz/log4j/log4j-api-2.25.2.jar:/home/fuzz/log4j/commons-logging-1.2/commons-logging-1.2.jar -jobs=1000 -workers=4 -rss_limit_mb=4096 /home/fuzz/pdfbox/fuzz/corpus"
